@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import qcm.controllers.MainController;
-import qcm.controllers.showAccueilControler;
+import qcm.controllers.showAccueilController;
 import qcm.models.Utilisateur;
 import qcm.utils.WebGate;
 import qcm.utils.saves.TaskQueue;
@@ -20,7 +20,7 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 	private ObservableList<Utilisateur> usersList;
-	private showAccueilControler showAccueilController;
+	private showAccueilController showAccueilController;
 	private WebGate webGate;
 	private TaskQueue taskQueue;
 
@@ -32,6 +32,7 @@ public class MainApp extends Application {
         initRootLayout();
 
         showAccueil();
+        //taskQueue.start();
     }
 
     /**
