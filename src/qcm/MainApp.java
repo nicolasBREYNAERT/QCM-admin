@@ -81,7 +81,7 @@ public class MainApp extends Application implements Observer {
          // Give the controller access to the main app.
             accueilController = loader.getController();
             accueilController.setMainApp(this);
-            accueilController.getPbTasks().progressProperty().bind(taskQueue.getService().progressProperty());
+            //accueilController.getPbTasks().progressProperty().bind(taskQueue.getService().progressProperty());
             
 
         } catch (IOException e) {
