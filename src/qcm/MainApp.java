@@ -1,7 +1,8 @@
 package qcm;
 
 import java.io.IOException;
-
+import java.util.Observable;
+import java.util.Observer;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -10,19 +11,28 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import qcm.controllers.MainController;
-import qcm.controllers.showAccueilController;
+import qcm.controllers.AccueilController;
 import qcm.models.Utilisateur;
 import qcm.utils.WebGate;
 import qcm.utils.saves.TaskQueue;
 
-public class MainApp extends Application {
+public class MainApp extends Application implements Observer {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 	private ObservableList<Utilisateur> usersList;
-	private showAccueilController showAccueilController;
+	private AccueilController accueilController;
 	private WebGate webGate;
 	private TaskQueue taskQueue;
+	private MainController mainController;
+	
+	public MainApp() {
+		super();
+		webGate = new WebGate();
+		taskQueue = new TaskQueue("mainFx", webGate);
+		taskQueue.addObserver(this);
+
+	}
 
     @Override
     public void start(Stage primaryStage) {
@@ -31,8 +41,8 @@ public class MainApp extends Application {
 
         initRootLayout();
 
+        taskQueue.start();
         showAccueil();
-        //taskQueue.start();
     }
 
     /**
@@ -44,6 +54,7 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("views/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
+            
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
@@ -67,21 +78,61 @@ public class MainApp extends Application {
             // Set person overview into the center of root layout.
             rootLayout.setCenter(accueil);
             
+         // Give the controller access to the main app.
+            accueilController = loader.getController();
+            accueilController.setMainApp(this);
+            accueilController.getPbTasks().progressProperty().bind(taskQueue.getService().progressProperty());
+            
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    
 
     /**
-     * Returns the main stage.
-     * @return
-     */
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
+	 * Returns the main stage.
+	 * 
+	 * @return
+	 */
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	public ObservableList<Utilisateur> getPersonData() {
+		return usersList;
+	}
+
+	public void setPersonData(ObservableList<Utilisateur> personData) {
+		this.usersList = personData;
+	}
+
+	public WebGate getWebGate() {
+		return webGate;
+	}
+
+	public TaskQueue getTaskQueue() {
+		return taskQueue;
+	}
+
+	@Override
+	public void stop() throws Exception {
+		taskQueue.stop();
+		super.stop();
+	}
+	
+	public void loadLists() {
+		taskQueue.getAll(Utilisateur.class);
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

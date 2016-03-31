@@ -1,13 +1,16 @@
 package qcm.controllers;
 
 import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.scene.control.ProgressBar;
 import qcm.MainApp;
 
 public class MainController {
 	private MainApp mainApp;
 
+	
+
 	public MainController() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public MainApp getMainApp() {
@@ -21,5 +24,11 @@ public class MainController {
 	public void closeApp() {
 		Platform.exit();
 	}
+
+	public void handleDelete() {
+		//this.mainApp.handleDelete();
+	}
+
+	
 
 }
