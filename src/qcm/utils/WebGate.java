@@ -44,7 +44,6 @@ public class WebGate {
 			}
 		}
 		return result;
-
 	}
 
 	public <T> List<T> getAll(Class<T> clazz) throws ClientProtocolException, IOException {
