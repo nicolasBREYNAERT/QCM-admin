@@ -1,4 +1,4 @@
-package qcm.models;
+package qcm.models.pojo;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class Realisation {
 	private java.sql.Date date;
 	private int id;
-	private int questionnaire_id;
+	private int idQuestionnaire;
+	private int idUtilisateur;
 	private int score;
-	private int utilisateur_id;
 	private Questionnaire questionnaire;
 	private List<Reponse_utilisateur> reponse_utilisateurs;
 	private Utilisateur utilisateur;
@@ -36,11 +36,18 @@ public class Realisation {
 		return this.id;
 	}
 	/**
-	 * return the value of questionnaire_id
-	 * @return questionnaire_id
+	 * return the value of idQuestionnaire
+	 * @return idQuestionnaire
 	 */
-	public int getQuestionnaire_id(){
-		return this.questionnaire_id;
+	public int getIdQuestionnaire(){
+		return this.idQuestionnaire;
+	}
+	/**
+	 * return the value of idUtilisateur
+	 * @return idUtilisateur
+	 */
+	public int getIdUtilisateur(){
+		return this.idUtilisateur;
 	}
 	/**
 	 * return the value of score
@@ -48,13 +55,6 @@ public class Realisation {
 	 */
 	public int getScore(){
 		return this.score;
-	}
-	/**
-	 * return the value of utilisateur_id
-	 * @return utilisateur_id
-	 */
-	public int getUtilisateur_id(){
-		return this.utilisateur_id;
 	}
 	/**
 	 * return the value of questionnaire
@@ -93,11 +93,18 @@ public class Realisation {
 		this.id=aId;
 	}
 	/**
-	 * set the value of questionnaire_id
-	 * @param aQuestionnaire_id
+	 * set the value of idQuestionnaire
+	 * @param aIdQuestionnaire
 	 */
-	public void setQuestionnaire_id(int aQuestionnaire_id){
-		this.questionnaire_id=aQuestionnaire_id;
+	public void setIdQuestionnaire(int aIdQuestionnaire){
+		this.idQuestionnaire=aIdQuestionnaire;
+	}
+	/**
+	 * set the value of idUtilisateur
+	 * @param aIdUtilisateur
+	 */
+	public void setIdUtilisateur(int aIdUtilisateur){
+		this.idUtilisateur=aIdUtilisateur;
 	}
 	/**
 	 * set the value of score
@@ -105,13 +112,6 @@ public class Realisation {
 	 */
 	public void setScore(int aScore){
 		this.score=aScore;
-	}
-	/**
-	 * set the value of utilisateur_id
-	 * @param aUtilisateur_id
-	 */
-	public void setUtilisateur_id(int aUtilisateur_id){
-		this.utilisateur_id=aUtilisateur_id;
 	}
 	/**
 	 * set the value of questionnaire
@@ -136,6 +136,6 @@ public class Realisation {
 	}
 	@Override
 	public String toString() {
-		return " [date] = " + date+" [score] = " + score+" [utilisateur_id] = " + utilisateur_id+" [questionnaire_id] = " + questionnaire_id+" [id] = " + id;
+		return " [date] = " + date+" [score] = " + score+" [idQuestionnaire] = " + idQuestionnaire+" [idUtilisateur] = " + idUtilisateur+" [id] = " + id;
 	}
 }

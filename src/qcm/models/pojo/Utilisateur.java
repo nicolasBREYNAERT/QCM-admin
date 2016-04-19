@@ -1,4 +1,4 @@
-package qcm.models;
+package qcm.models.pojo;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -9,18 +9,20 @@ import java.util.ArrayList;
 */
 public class Utilisateur {
 	private int id;
+	private int idRang;
+	private String login;
 	private String mail;
 	private String nom;
 	private String password;
 	private String prenom;
-	private int rang_id;
 	private Rang rang;
-	private List<Groupe_utilisateur> groupe_utilisateurs;
+	private List<Questionnaire> questionnaires;
 	private List<Realisation> realisations;
+	private List<Utilisateur_groupe> utilisateur_groupes;
 
 	public Utilisateur() {
 		super();
-		realisations=new ArrayList<>();groupe_utilisateurs=new ArrayList<>();rang=new Rang();
+		utilisateur_groupes=new ArrayList<>();realisations=new ArrayList<>();questionnaires=new ArrayList<>();rang=new Rang();
 	}
 	/**
 	 * return the value of id
@@ -28,6 +30,20 @@ public class Utilisateur {
 	 */
 	public int getId(){
 		return this.id;
+	}
+	/**
+	 * return the value of idRang
+	 * @return idRang
+	 */
+	public int getIdRang(){
+		return this.idRang;
+	}
+	/**
+	 * return the value of login
+	 * @return login
+	 */
+	public String getLogin(){
+		return this.login;
 	}
 	/**
 	 * return the value of mail
@@ -58,13 +74,6 @@ public class Utilisateur {
 		return this.prenom;
 	}
 	/**
-	 * return the value of rang_id
-	 * @return rang_id
-	 */
-	public int getRang_id(){
-		return this.rang_id;
-	}
-	/**
 	 * return the value of rang
 	 * @return rang
 	 */
@@ -72,11 +81,11 @@ public class Utilisateur {
 		return this.rang;
 	}
 	/**
-	 * return the value of groupe_utilisateurs
-	 * @return groupe_utilisateurs
+	 * return the value of questionnaires
+	 * @return questionnaires
 	 */
-	public List<Groupe_utilisateur> getGroupe_utilisateurs(){
-		return this.groupe_utilisateurs;
+	public List<Questionnaire> getQuestionnaires(){
+		return this.questionnaires;
 	}
 	/**
 	 * return the value of realisations
@@ -85,6 +94,13 @@ public class Utilisateur {
 	public List<Realisation> getRealisations(){
 		return this.realisations;
 	}
+	/**
+	 * return the value of utilisateur_groupes
+	 * @return utilisateur_groupes
+	 */
+	public List<Utilisateur_groupe> getUtilisateur_groupes(){
+		return this.utilisateur_groupes;
+	}
 
 	/**
 	 * set the value of id
@@ -92,6 +108,20 @@ public class Utilisateur {
 	 */
 	public void setId(int aId){
 		this.id=aId;
+	}
+	/**
+	 * set the value of idRang
+	 * @param aIdRang
+	 */
+	public void setIdRang(int aIdRang){
+		this.idRang=aIdRang;
+	}
+	/**
+	 * set the value of login
+	 * @param aLogin
+	 */
+	public void setLogin(String aLogin){
+		this.login=aLogin;
 	}
 	/**
 	 * set the value of mail
@@ -122,13 +152,6 @@ public class Utilisateur {
 		this.prenom=aPrenom;
 	}
 	/**
-	 * set the value of rang_id
-	 * @param aRang_id
-	 */
-	public void setRang_id(int aRang_id){
-		this.rang_id=aRang_id;
-	}
-	/**
 	 * set the value of rang
 	 * @param aRang
 	 */
@@ -136,11 +159,11 @@ public class Utilisateur {
 		this.rang=aRang;
 	}
 	/**
-	 * set the value of groupe_utilisateurs
-	 * @param aGroupe_utilisateurs
+	 * set the value of questionnaires
+	 * @param aQuestionnaires
 	 */
-	public void setGroupe_utilisateurs(List<Groupe_utilisateur> aGroupe_utilisateurs){
-		this.groupe_utilisateurs=aGroupe_utilisateurs;
+	public void setQuestionnaires(List<Questionnaire> aQuestionnaires){
+		this.questionnaires=aQuestionnaires;
 	}
 	/**
 	 * set the value of realisations
@@ -149,8 +172,15 @@ public class Utilisateur {
 	public void setRealisations(List<Realisation> aRealisations){
 		this.realisations=aRealisations;
 	}
+	/**
+	 * set the value of utilisateur_groupes
+	 * @param aUtilisateur_groupes
+	 */
+	public void setUtilisateur_groupes(List<Utilisateur_groupe> aUtilisateur_groupes){
+		this.utilisateur_groupes=aUtilisateur_groupes;
+	}
 	@Override
 	public String toString() {
-		return " [password] = " + password+" [mail] = " + mail+" [rang_id] = " + rang_id+" [id] = " + id+" [nom] = " + nom+" [prenom] = " + prenom;
+		return " [password] = " + password+" [mail] = " + mail+" [idRang] = " + idRang+" [id] = " + id+" [login] = " + login+" [nom] = " + nom+" [prenom] = " + prenom;
 	}
 }

@@ -1,4 +1,4 @@
-package qcm.models;
+package qcm.models.pojo;
 
 
 
@@ -6,8 +6,8 @@ package qcm.models;
 * Classe Reponse_utilisateur
 */
 public class Reponse_utilisateur {
-	private int realisation_id;
-	private int reponse_id;
+	private int idRealisation;
+	private int idReponse;
 	private Realisation realisation;
 	private Reponse reponse;
 
@@ -16,18 +16,18 @@ public class Reponse_utilisateur {
 		reponse=new Reponse();realisation=new Realisation();
 	}
 	/**
-	 * return the value of realisation_id
-	 * @return realisation_id
+	 * return the value of idRealisation
+	 * @return idRealisation
 	 */
-	public int getRealisation_id(){
-		return this.realisation_id;
+	public int getIdRealisation(){
+		return this.idRealisation;
 	}
 	/**
-	 * return the value of reponse_id
-	 * @return reponse_id
+	 * return the value of idReponse
+	 * @return idReponse
 	 */
-	public int getReponse_id(){
-		return this.reponse_id;
+	public int getIdReponse(){
+		return this.idReponse;
 	}
 	/**
 	 * return the value of realisation
@@ -45,18 +45,18 @@ public class Reponse_utilisateur {
 	}
 
 	/**
-	 * set the value of realisation_id
-	 * @param aRealisation_id
+	 * set the value of idRealisation
+	 * @param aIdRealisation
 	 */
-	public void setRealisation_id(int aRealisation_id){
-		this.realisation_id=aRealisation_id;
+	public void setIdRealisation(int aIdRealisation){
+		this.idRealisation=aIdRealisation;
 	}
 	/**
-	 * set the value of reponse_id
-	 * @param aReponse_id
+	 * set the value of idReponse
+	 * @param aIdReponse
 	 */
-	public void setReponse_id(int aReponse_id){
-		this.reponse_id=aReponse_id;
+	public void setIdReponse(int aIdReponse){
+		this.idReponse=aIdReponse;
 	}
 	/**
 	 * set the value of realisation
@@ -74,6 +74,6 @@ public class Reponse_utilisateur {
 	}
 	@Override
 	public String toString() {
-		return " [realisation_id] = " + realisation_id+" [reponse_id] = " + reponse_id;
+		return " [idRealisation] = " + idRealisation+" [idReponse] = " + idReponse;
 	}
 }

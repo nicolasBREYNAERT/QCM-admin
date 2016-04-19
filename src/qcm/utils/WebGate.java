@@ -12,7 +12,6 @@ import org.apache.http.client.ClientProtocolException;
 import com.google.gson.Gson;
 
 import javafx.collections.ObservableList;
-import qcm.models.Utilisateur;
 
 public class WebGate {
 	private Map<String, String> restUrlMappings;

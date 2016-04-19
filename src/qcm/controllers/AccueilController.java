@@ -8,7 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import qcm.MainApp;
-import qcm.models.Utilisateur;
+import qcm.models.pojo.Utilisateur;
 
 public class AccueilController {
 	@FXML
@@ -19,12 +19,11 @@ public class AccueilController {
     private TableColumn<Utilisateur, String> firstNameColumn;
     @FXML
     private TableColumn<Utilisateur, String> lastNameColumn;
-    private MainApp mainApp;
+    protected MainApp mainApp;
 
     public void setMainApp(MainApp mainApp) {
     	this.mainApp = mainApp;
-    	ObservableList<Utilisateur> userObs = mainApp.getWebGate().getList(Utilisateur.class);
-    	personnTable.setItems(userObs);
+    	personnTable.setItems(mainApp.getPersonData());
     }
 
     /**

@@ -13,9 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import qcm.controllers.AccueilController;
 import qcm.controllers.MainController;
-import qcm.models.Questionnaire;
-import qcm.models.Reponse;
-import qcm.models.Utilisateur;
+import qcm.models.pojo.Utilisateur;
 import qcm.utils.WebGate;
 import qcm.utils.saves.TaskQueue;
 
@@ -43,9 +41,7 @@ public class MainApp extends Application implements Observer {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("QCM-admin");
-
         initRootLayout();
-
         taskQueue.start();
         loadLists();
         showAccueil();

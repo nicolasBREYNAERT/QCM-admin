@@ -1,4 +1,4 @@
-package qcm.models;
+package qcm.models.pojo;
 
 
 
@@ -6,8 +6,8 @@ package qcm.models;
 * Classe Groupe_questionnaire
 */
 public class Groupe_questionnaire {
-	private int groupe_id;
-	private int questionnaire_id;
+	private int idGroupe;
+	private int idQuestionnaire;
 	private Groupe groupe;
 	private Questionnaire questionnaire;
 
@@ -16,18 +16,18 @@ public class Groupe_questionnaire {
 		questionnaire=new Questionnaire();groupe=new Groupe();
 	}
 	/**
-	 * return the value of groupe_id
-	 * @return groupe_id
+	 * return the value of idGroupe
+	 * @return idGroupe
 	 */
-	public int getGroupe_id(){
-		return this.groupe_id;
+	public int getIdGroupe(){
+		return this.idGroupe;
 	}
 	/**
-	 * return the value of questionnaire_id
-	 * @return questionnaire_id
+	 * return the value of idQuestionnaire
+	 * @return idQuestionnaire
 	 */
-	public int getQuestionnaire_id(){
-		return this.questionnaire_id;
+	public int getIdQuestionnaire(){
+		return this.idQuestionnaire;
 	}
 	/**
 	 * return the value of groupe
@@ -45,18 +45,18 @@ public class Groupe_questionnaire {
 	}
 
 	/**
-	 * set the value of groupe_id
-	 * @param aGroupe_id
+	 * set the value of idGroupe
+	 * @param aIdGroupe
 	 */
-	public void setGroupe_id(int aGroupe_id){
-		this.groupe_id=aGroupe_id;
+	public void setIdGroupe(int aIdGroupe){
+		this.idGroupe=aIdGroupe;
 	}
 	/**
-	 * set the value of questionnaire_id
-	 * @param aQuestionnaire_id
+	 * set the value of idQuestionnaire
+	 * @param aIdQuestionnaire
 	 */
-	public void setQuestionnaire_id(int aQuestionnaire_id){
-		this.questionnaire_id=aQuestionnaire_id;
+	public void setIdQuestionnaire(int aIdQuestionnaire){
+		this.idQuestionnaire=aIdQuestionnaire;
 	}
 	/**
 	 * set the value of groupe
@@ -74,6 +74,6 @@ public class Groupe_questionnaire {
 	}
 	@Override
 	public String toString() {
-		return " [questionnaire_id] = " + questionnaire_id+" [groupe_id] = " + groupe_id;
+		return " [idQuestionnaire] = " + idQuestionnaire+" [idGroupe] = " + idGroupe;
 	}
 }

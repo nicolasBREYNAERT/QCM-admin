@@ -1,20 +1,20 @@
-package qcm.models;
+package qcm.models.pojo;
 
 import java.util.List;
 import java.util.ArrayList;
 
 
 /**
-* Classe Domaine
+* Classe Rang
 */
-public class Domaine {
+public class Rang {
 	private int id;
 	private String libelle;
-	private List<Questionnaire> questionnaires;
+	private List<Utilisateur> utilisateurs;
 
-	public Domaine() {
+	public Rang() {
 		super();
-		questionnaires=new ArrayList<>();
+		utilisateurs=new ArrayList<>();
 	}
 	/**
 	 * return the value of id
@@ -31,11 +31,11 @@ public class Domaine {
 		return this.libelle;
 	}
 	/**
-	 * return the value of questionnaires
-	 * @return questionnaires
+	 * return the value of utilisateurs
+	 * @return utilisateurs
 	 */
-	public List<Questionnaire> getQuestionnaires(){
-		return this.questionnaires;
+	public List<Utilisateur> getUtilisateurs(){
+		return this.utilisateurs;
 	}
 
 	/**
@@ -53,11 +53,11 @@ public class Domaine {
 		this.libelle=aLibelle;
 	}
 	/**
-	 * set the value of questionnaires
-	 * @param aQuestionnaires
+	 * set the value of utilisateurs
+	 * @param aUtilisateurs
 	 */
-	public void setQuestionnaires(List<Questionnaire> aQuestionnaires){
-		this.questionnaires=aQuestionnaires;
+	public void setUtilisateurs(List<Utilisateur> aUtilisateurs){
+		this.utilisateurs=aUtilisateurs;
 	}
 	@Override
 	public String toString() {

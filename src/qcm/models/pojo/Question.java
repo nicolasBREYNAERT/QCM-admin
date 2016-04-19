@@ -1,4 +1,4 @@
-package qcm.models;
+package qcm.models.pojo;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import java.util.ArrayList;
 */
 public class Question {
 	private int id;
+	private int idQuestionnaire;
 	private String libelle;
-	private int questionnaire_id;
 	private List<Reponse> reponses;
 	private Questionnaire questionnaire;
 
@@ -26,18 +26,18 @@ public class Question {
 		return this.id;
 	}
 	/**
+	 * return the value of idQuestionnaire
+	 * @return idQuestionnaire
+	 */
+	public int getIdQuestionnaire(){
+		return this.idQuestionnaire;
+	}
+	/**
 	 * return the value of libelle
 	 * @return libelle
 	 */
 	public String getLibelle(){
 		return this.libelle;
-	}
-	/**
-	 * return the value of questionnaire_id
-	 * @return questionnaire_id
-	 */
-	public int getQuestionnaire_id(){
-		return this.questionnaire_id;
 	}
 	/**
 	 * return the value of reponses
@@ -62,18 +62,18 @@ public class Question {
 		this.id=aId;
 	}
 	/**
+	 * set the value of idQuestionnaire
+	 * @param aIdQuestionnaire
+	 */
+	public void setIdQuestionnaire(int aIdQuestionnaire){
+		this.idQuestionnaire=aIdQuestionnaire;
+	}
+	/**
 	 * set the value of libelle
 	 * @param aLibelle
 	 */
 	public void setLibelle(String aLibelle){
 		this.libelle=aLibelle;
-	}
-	/**
-	 * set the value of questionnaire_id
-	 * @param aQuestionnaire_id
-	 */
-	public void setQuestionnaire_id(int aQuestionnaire_id){
-		this.questionnaire_id=aQuestionnaire_id;
 	}
 	/**
 	 * set the value of reponses
@@ -91,6 +91,6 @@ public class Question {
 	}
 	@Override
 	public String toString() {
-		return " [questionnaire_id] = " + questionnaire_id+" [libelle] = " + libelle+" [id] = " + id;
+		return " [libelle] = " + libelle+" [idQuestionnaire] = " + idQuestionnaire+" [id] = " + id;
 	}
 }

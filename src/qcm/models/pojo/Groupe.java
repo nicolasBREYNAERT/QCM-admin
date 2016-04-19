@@ -1,4 +1,4 @@
-package qcm.models;
+package qcm.models.pojo;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ public class Groupe {
 	private int id;
 	private String libelle;
 	private List<Groupe_questionnaire> groupe_questionnaires;
-	private List<Groupe_utilisateur> groupe_utilisateurs;
+	private List<Utilisateur_groupe> utilisateur_groupes;
 
 	public Groupe() {
 		super();
-		groupe_utilisateurs=new ArrayList<>();groupe_questionnaires=new ArrayList<>();
+		utilisateur_groupes=new ArrayList<>();groupe_questionnaires=new ArrayList<>();
 	}
 	/**
 	 * return the value of code
@@ -47,11 +47,11 @@ public class Groupe {
 		return this.groupe_questionnaires;
 	}
 	/**
-	 * return the value of groupe_utilisateurs
-	 * @return groupe_utilisateurs
+	 * return the value of utilisateur_groupes
+	 * @return utilisateur_groupes
 	 */
-	public List<Groupe_utilisateur> getGroupe_utilisateurs(){
-		return this.groupe_utilisateurs;
+	public List<Utilisateur_groupe> getUtilisateur_groupes(){
+		return this.utilisateur_groupes;
 	}
 
 	/**
@@ -83,11 +83,11 @@ public class Groupe {
 		this.groupe_questionnaires=aGroupe_questionnaires;
 	}
 	/**
-	 * set the value of groupe_utilisateurs
-	 * @param aGroupe_utilisateurs
+	 * set the value of utilisateur_groupes
+	 * @param aUtilisateur_groupes
 	 */
-	public void setGroupe_utilisateurs(List<Groupe_utilisateur> aGroupe_utilisateurs){
-		this.groupe_utilisateurs=aGroupe_utilisateurs;
+	public void setUtilisateur_groupes(List<Utilisateur_groupe> aUtilisateur_groupes){
+		this.utilisateur_groupes=aUtilisateur_groupes;
 	}
 	@Override
 	public String toString() {
