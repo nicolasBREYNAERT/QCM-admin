@@ -31,10 +31,8 @@ public class MainApp extends Application implements Observer {
 		super();
 		webGate = new WebGate();
 		taskQueue = new TaskQueue("mainFx", webGate);
-		taskQueue.addObserver(this);
-		
-		usersList = webGate.getList(Utilisateur.class);
-		
+		taskQueue.addObserver(this);	
+		usersList = webGate.getList(Utilisateur.class);	
 	}
 
     @Override
@@ -43,8 +41,8 @@ public class MainApp extends Application implements Observer {
         this.primaryStage.setTitle("QCM-admin");
         initRootLayout();
         taskQueue.start();
-        loadLists();
         showAccueil();
+        loadLists();
     }
 
     /**
