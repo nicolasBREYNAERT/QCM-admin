@@ -1,6 +1,7 @@
 package qcm.controllers;
 
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
@@ -19,11 +20,11 @@ public class AccueilController {
     @FXML
     private TableColumn<Utilisateur, String> lastNameColumn;
     private MainApp mainApp;
-    /**
-     * The constructor.
-     * The constructor is called before the initialize() method.
-     */
-    public AccueilController() {
+
+    public void setMainApp(MainApp mainApp) {
+    	this.mainApp = mainApp;
+    	ObservableList<Utilisateur> userObs = mainApp.getWebGate().getList(Utilisateur.class);
+    	personnTable.setItems(userObs);
     }
 
     /**
@@ -43,11 +44,6 @@ public class AccueilController {
     			});
     }
     
-    public void setMainApp(MainApp mainApp) {
-		this.mainApp = mainApp;
-		//personnTable.setItems(mainApp.getPersonData());
-		// lblCount.textProperty().bind(mainApp.getTaskQueue().getService().progressProperty().asString());
-	}
     public ProgressBar getPbTasks() {
 		return pbTasks;
 	}

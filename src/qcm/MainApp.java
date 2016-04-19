@@ -3,6 +3,7 @@ package qcm;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import qcm.controllers.MainController;
 import qcm.controllers.AccueilController;
+import qcm.controllers.MainController;
+import qcm.models.Questionnaire;
+import qcm.models.Reponse;
 import qcm.models.Utilisateur;
 import qcm.utils.WebGate;
 import qcm.utils.saves.TaskQueue;
@@ -31,7 +34,9 @@ public class MainApp extends Application implements Observer {
 		webGate = new WebGate();
 		taskQueue = new TaskQueue("mainFx", webGate);
 		taskQueue.addObserver(this);
-
+		
+		usersList = webGate.getList(Utilisateur.class);
+		
 	}
 
     @Override
@@ -42,6 +47,7 @@ public class MainApp extends Application implements Observer {
         initRootLayout();
 
         taskQueue.start();
+        loadLists();
         showAccueil();
     }
 

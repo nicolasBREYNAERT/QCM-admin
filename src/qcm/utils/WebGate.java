@@ -11,12 +11,17 @@ import org.apache.http.client.ClientProtocolException;
 
 import com.google.gson.Gson;
 
+import javafx.collections.ObservableList;
+import qcm.models.Utilisateur;
+
 public class WebGate {
 	private Map<String, String> restUrlMappings;
+	private Map<Class<? extends Object>, WebGateList> modelLists;
 	private String baseUrl;
 
 	public WebGate() {
-		baseUrl = "http://127.0.0.1:8080/Q2baseRest/rest/";
+		modelLists = new HashMap<>();
+		baseUrl = "http://127.0.0.1:8080/Q2Base_rest/rest/";
 		restUrlMappings = new HashMap<>();
 		restUrlMappings.put("Utilisateur", "user");
 	}
@@ -87,6 +92,17 @@ public class WebGate {
 		int result = gson.fromJson(jsonO, Integer.class);
 		return result;
 
+	}
+	public <T> WebGateList getWebGateList(Class<T> clazz) {
+		if (!modelLists.containsKey(clazz))
+			modelLists.put(clazz, new WebGateList());
+		return modelLists.get(clazz);
+	}
+	@SuppressWarnings("unchecked")
+	public <T extends Object> ObservableList<T> getList(Class<T> clazz) {
+		if (!modelLists.containsKey(clazz))
+			modelLists.put(clazz, new WebGateList());
+		return (ObservableList<T>) modelLists.get(clazz).getList();
 	}
 
 }
