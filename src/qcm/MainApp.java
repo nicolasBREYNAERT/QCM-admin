@@ -67,6 +67,7 @@ public class MainApp extends Application implements Observer {
         }
     }
 
+    
     /**
      * Shows the person overview inside the root layout.
      */
@@ -91,6 +92,9 @@ public class MainApp extends Application implements Observer {
         }
     }
     
+    /*public void handleDelete() {
+    	AccueilController.deleteUser();
+	}*/
 
     /**
 	 * Returns the main stage.

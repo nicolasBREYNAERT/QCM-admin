@@ -6,9 +6,11 @@ import javafx.scene.control.ProgressBar;
 import qcm.MainApp;
 
 public class MainController {
+
 	private MainApp mainApp;
 
-	
+	@FXML
+	private ProgressBar pbTasks;
 
 	public MainController() {
 	}
@@ -25,10 +27,11 @@ public class MainController {
 		Platform.exit();
 	}
 
-	public void handleDelete() {
-		//this.mainApp.handleDelete();
+	/*public void handleDelete() {
+		this.mainApp.handleDelete();
+	}*/
+
+	public ProgressBar getPbTasks() {
+		return pbTasks;
 	}
-
-	
-
 }
